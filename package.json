@@ -1,0 +1,39 @@
+{
+  "name": "chef-s-diary-project-02",
+  "version": "1.0.0",
+  "description": "Project 2",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliusregalado/Chef-s-Diary-Project-02.git"
+  },
+  "author": "julius",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.6",
+    "hash": "^0.2.0",
+    "jsdoc": "^3.5.4",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7",
+    "pbkdf2-password": "^1.2.1",
+    "pg-promise": "^6.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.11.0"
+  },
+  "bugs": {
+    "url": "https://github.com/juliusregalado/Chef-s-Diary-Project-02/issues"
+  },
+  "homepage": "https://github.com/juliusregalado/Chef-s-Diary-Project-02#readme"
+}

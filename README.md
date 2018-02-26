@@ -5,11 +5,11 @@ Chef's Diary is a simple application where you can manage your own recipes, with
 ## Wireframes
 ![imagename](./img/wireF.jpg)
 ## User Stories
--Users should be able to register and login.
--Users will be able to create recipes.
--Users will have their saved recipes on account available.
--Users will have the option to update and/or delete.
--Users should have the option for a recipe search from 3rd party API.
+- Users should be able to register and login.
+- Users will be able to create recipes.
+- Users will have their saved recipes on account available.
+- Users will have the option to update and/or delete.
+- Users should have the option for a recipe search from 3rd party API.
 ## Phases of Completion
 1. Backend(server side)
 	- configurations and routes
@@ -21,7 +21,7 @@ Chef's Diary is a simple application where you can manage your own recipes, with
 	- EJS and CSS
 5. Polishing and Debugging
 ## Technologies, Tools and Resources
--Programming
+- Programming
 	- Node.js
 	- Express
 	- Javascript 
@@ -30,12 +30,12 @@ Chef's Diary is a simple application where you can manage your own recipes, with
 	- EJS 
 	- HTML 
 	- CSS..
--Tools
+- Tools
 	- sublime text 3
 	- git hub
 	- google chrome
 	- postman
--Resources
+- Resources
 	- https://www.google.com/
 	- https://www.youtube.com/
 	- https://www.w3shools.com/
