@@ -16,13 +16,12 @@ app.use(bodyParser.json())
 app.use	(bodyParser.urlencoded({extended: false}))
 app.use(express.static('public'))
 app.set('views', path.join(__dirname,'views'))
-app.set('viiew engine', ejs)
+app.set('view engine', 'ejs')
 
 //routes
-app.get('/',(req,res) => {
-	res.send('index goes here')
+app.get('/', (req,res) => {
+	res.render('index')
 })
-
 const recipeR = require('./routes/recipes')
 app.use('/recipes', recipeR);
 

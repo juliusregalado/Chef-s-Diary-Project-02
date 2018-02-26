@@ -5,9 +5,8 @@ Chef's Diary is a simple application where you can manage your own recipes, with
 ## Wireframes
 Please refer to img/wireframes directory.
 ## User Stories
-- Users should be able to register and login.
 - Users will be able to create recipes.
-- Users will have their saved recipes on account available.
+- Users should be able to create and browse recipes by categories
 - Users will have the option to update and/or delete.
 - Users should have the option for a recipe search from 3rd party API.
 ## Phases of Completion
@@ -27,7 +26,8 @@ Please refer to img/wireframes directory.
 	- Javascript 
 	- Jquery 
 	- AJAX 
-	- EJS 
+	- EJS
+	- Bootstrap 
 	- HTML 
 	- CSS..
 - Tools

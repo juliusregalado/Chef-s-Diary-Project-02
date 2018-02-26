@@ -1,9 +1,19 @@
+const recipesDB = require('../models/recipesDB')
 
 module.exports = {
 	
-	index(req,res) {
+	index(req,res,next) {
 		console.log('recipe list');
-		res.send('recipe list goes here');
+		recipesDB.findAll()
+			.then((recipes)=> {
+				console.log(recipes)
+				res.locals.recipes = recipes
+				next()
+
+			})
+			.catch(err => {
+				next(err)
+			})
 	},
 
 	create(req,res) {

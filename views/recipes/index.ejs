@@ -1,0 +1,10 @@
+<% include ../partials/header %>
+<!-- code goes here -->
+<h1>Your Recipes</h1>
+<hr>
+<ul>
+<% recipes.forEach((data) => {%>
+	<li><%= data.recipe_name %></li> 
+<%})%>
+</ul>
+<% include ../partials/footer %>

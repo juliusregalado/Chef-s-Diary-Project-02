@@ -1,0 +1,45 @@
+.marker {
+  font-family: 'Permanent Marker';
+}
+
+.highlight {
+  color: #e50000;
+}
+
+.navbar-brand {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+}
+
+nav.navbar.navbar-dark {
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-bottom: .5px solid #e50000;
+  width: 100%;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 0 2rem;
+  text-transform: uppercase;
+  /*text-align: justify;*/
+}
+
+footer {
+  padding-top: 5px;
+  color: #ffffff;
+  background-color: #191b1d;
+  text-align: center;
+  border-top: #a80505 1px solid;
+  border-bottom: #a80505 1px solid;
+}
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:40px;
+   position: fixed;
+   margin-top: 40px;
+   font-family: Reem Kufi, sans-serif;
+}
