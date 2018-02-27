@@ -1,11 +1,9 @@
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS recipes;
+DROP TABLE IF EXISTS cuisine;
 
-CREATE TABLE users (
+CREATE TABLE cuisine (
   	id SERIAL PRIMARY KEY,
-  	user_name VARCHAR NOT NULL,
-  	email VARCHAR NOT NULL,
-  	password VARCHAR NOT NULL,
+  	cuisine VARCHAR NOT NULL,
   	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
@@ -13,10 +11,9 @@ CREATE TABLE recipes (
 	id SERIAL PRIMARY KEY,
 	recipe_name VARCHAR NOT NULL,
 	ingredients VARCHAR NOT NULL,
-	instructions TEXT,
-	user_id INTEGER REFERENCES users,
+	instructions VARCHAR NOT NULL,
+	cuisine_id INTEGER REFERENCES cuisine,
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX ON users (email);
 CREATE INDEX ON recipes (recipe_name);

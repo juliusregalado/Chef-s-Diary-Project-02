@@ -6,6 +6,13 @@ module.exports = {
 
 	findAll() {
 		return db.many(`SELECT * FROM recipes`);
-	}
+	},
 
+	findById(id) {
+    return db.one(`
+      	SELECT *
+      	FROM quotes
+      	WHERE id = $1
+      	`, id);
+  	}
 }

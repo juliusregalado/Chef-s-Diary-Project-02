@@ -1,10 +1,111 @@
 <% include ../partials/header %>
-<!-- code goes here -->
-<h1>Your Recipes</h1>
-<hr>
-<ul>
-<% recipes.forEach((data) => {%>
-	<li><%= data.recipe_name %></li> 
-<%})%>
-</ul>
+
+<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addModal">
+	Add Recipe
+</button>
+
+<br>
+
+<div class="row">
+	<div clss="col-md-offst-2 col-md-7">
+
+		<div class="container well">	
+			<% recipes.forEach((data) => {%>
+				<h4><%= data.recipe_name%>
+				<button class="btn btn-default" href="data.id" data-toggle="collapse" data-target="#data.name" aria-expanded="false" aria-controls="data.name">View
+				</button></h4>
+
+				<div class="collapse" id="data.name">
+					
+					<hr>
+					<p><strong>Ingredients: </strong><%=data.ingredients%></p>
+					<p><strong>Instructions: </strong><%=data.instructions%></p>
+					
+					<button class="btn btn-default edit-recipe"
+					data-toggle="modal"
+					data-target="#editModal"
+					data-id="data.id"
+					data-name="data.name"
+					data-ingredients="data.ingredients"
+					data-instructions="data.instructions">
+						Edit
+					</button>
+
+					<button class="btn btn-danger delete-recipe">
+						Delete
+					</button>
+					<br>
+					<br>
+				</div>
+			<%})%>
+		</div>
+
+		<!--ADD Modal -->
+		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			    	<form method="post" action="/add">
+				      	<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        	<h4 class="modal-title" id="myModalLabel">Add Recipe</h4>
+				      	</div>
+				      	<div class="modal-body">
+				        	<div class="form-group">
+				        		<label>Recipe Name</label>
+				        		<input type="text" class="form-control" name="recipe_name">
+				        	</div>
+				        	<div class="form-group">
+				        		<label>Ingredients</label>
+				        		<input type="text" class="form-control" name="ingredients">
+				        	</div>
+				        	<div class="form-group">
+				        		<label>Instructions</label>
+				        		<input type="text" class="form-control" name="instructions">
+				        	</div>
+				      	</div>
+				      	<div class="modal-footer">
+				        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        	<input type="submit" class="btn btn-primary" value="save">
+				      	</div>
+			      	</form>
+			    </div>
+			 </div>
+		</div>
+
+		<!--Edit Modal -->
+		<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			    	<form method="post" action="/edit">
+				      	<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        	<h4 class="modal-title" id="myModalLabel">Edit Recipe</h4>
+				      	</div>
+				      	<div class="modal-body">
+				        	<div class="form-group">
+				        		<label>Recipe Name</label>
+				        		<input type="text" class="form-control" name="recipe_name" id="editName">
+				        	</div>
+				        	<div class="form-group">
+				        		<label>Ingredients</label>
+				        		<input type="text" class="form-control" name="ingredients" id="editIng">
+				        	</div>
+				        	<div class="form-group">
+				        		<label>Instructions</label>
+				        		<input type="text" class="form-control" name="instructions" id="editInst">
+				        	</div>
+				      	</div>
+				      	<div class="modal-footer">
+				        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        	<input type="submit" class="btn btn-primary" value="save">
+				      	</div>
+			      	</form>
+			    </div>
+			 </div>
+		</div>
+
+	</div>
+</div>
+
 <% include ../partials/footer %>
+
