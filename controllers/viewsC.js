@@ -1,16 +1,15 @@
 module.exports = {
 
 	index(req,res) {
-		res.render('recipes/index')
-		data: res.locals.recipes
+		res.render('recipes/index', {
+			data: res.locals.recipes
+		})
 	},
+	editForm(req,res) {
+		res.render('recipes/editForm', {
+			data: res.locals.recipe
+		})
+	}
 
-	save(quote) {
-    return db.one(`
-      	INSERT INTO quotes (author, content, genre_type)
-      	VALUES ($/author/, $/content/, $/genre_type/)
-      	RETURNING *
-      	`, quote);
-  },
+};
 
-}

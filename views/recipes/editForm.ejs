@@ -1,0 +1,42 @@
+<%include ../partials/header%>
+<div class="container">
+
+<form method="POST" action="/recipes/<%= data.id %>?_method=PUT">
+	<input name="id" type="hidden" value="<%= data.id %>">
+  	<div class="form-group">
+    	<label>Recipe Name</label>
+    	<input type="text" class="form-control" name="recipe_name" value="<%=data.recipe_name%>">
+  	</div>
+
+  	<div class="form-group">
+    	<label>Ingredients</label>
+    	<textarea class="form-control" rows="3" name="ingredients" type='"text'>
+    		<%=data.ingredients%>
+    	</textarea>
+  	</div>
+
+  	<div class="form-group">
+    	<label>Ingredients</label>
+    	<textarea class="form-control" rows="3" name="instructions" type='"text'>
+    		<%=data.instructions%>
+    	</textarea>
+  	</div>
+
+  	<!--
+  	<div class="form-group">
+    	<label for="cuisines">Example select</label>
+    	<select class="form-control" id="exampleFormControlSelect1">
+      		<option>1</option>
+      		<option>2</option>
+      		<option>3</option>
+      		<option>4</option>
+      		<option>5</option>
+    	</select>
+     -->
+  	</div>
+     <button type="submit" value="Save changes">Save Changes</button>
+     <button type="reset" value="Reset">Reset</button>
+
+</form>
+</div>
+<%include ../partials/footer%>

@@ -10,7 +10,7 @@ const ejs = require('ejs');
 const app = express();
 
 //config
-app.use(methodOverride());
+app.use(methodOverride('_method'));
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use	(bodyParser.urlencoded({extended: false}))

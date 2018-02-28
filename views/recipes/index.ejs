@@ -8,45 +8,34 @@
 
 <div class="row">
 	<div clss="col-md-offst-2 col-md-7">
+		<%data.forEach((recipes) => {%>
+			
+			<div class="container well">	
+				<h4><%= recipes.recipe_name%>
+				<button class="btn btn-default pull-right" data-toggle="collapse" data-target="#<%=recipes.id%>" aria-expanded="false" aria-controls="<%=recipes.recipe_name%>">View
+				</button>
+				<a class="btn btn-default pull-right" href="/recipes/<%=recipes.id%>/edit">	Edit
+				</a></h4>
 
-		<div class="container well">	
-			<% recipes.forEach((data) => {%>
-				<h4><%= data.recipe_name%>
-				<button class="btn btn-default" href="data.id" data-toggle="collapse" data-target="#data.name" aria-expanded="false" aria-controls="data.name">View
-				</button></h4>
-
-				<div class="collapse" id="data.name">
-					
+				<form action="recipes/delete/<%=recipes.id%>?_method=delete" method="post">
+    				<input type="Submit" value="Delete">
+				</form>
+				<div class="collapse" id="<%=recipes.id%>">
 					<hr>
-					<p><strong>Ingredients: </strong><%=data.ingredients%></p>
-					<p><strong>Instructions: </strong><%=data.instructions%></p>
-					
-					<button class="btn btn-default edit-recipe"
-					data-toggle="modal"
-					data-target="#editModal"
-					data-id="data.id"
-					data-name="data.name"
-					data-ingredients="data.ingredients"
-					data-instructions="data.instructions">
-						Edit
-					</button>
-
-					<button class="btn btn-danger delete-recipe">
-						Delete
-					</button>
+					<p><strong>Ingredients: </strong><%=recipes.ingredients%></p>
+					<p><strong>Instructions: </strong><%=recipes.instructions%></p>
 					<br>
 					<br>
 				</div>
-			<%})%>
-		</div>
+			</div>
+		<%})%>
 
 		<!--ADD Modal -->
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 			    <div class="modal-content">
-			    	<form method="post" action="/add">
+			    	<form method="post" action="/recipes/add">
 				      	<div class="modal-header">
-				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				        	<h4 class="modal-title" id="myModalLabel">Add Recipe</h4>
 				      	</div>
 				      	<div class="modal-body">
@@ -56,11 +45,11 @@
 				        	</div>
 				        	<div class="form-group">
 				        		<label>Ingredients</label>
-				        		<input type="text" class="form-control" name="ingredients">
+				        		<textarea type="text" class="form-control" name="ingredients"></textarea>
 				        	</div>
 				        	<div class="form-group">
 				        		<label>Instructions</label>
-				        		<input type="text" class="form-control" name="instructions">
+				        		<textarea type="text" class="form-control" name="instructions"></textarea>
 				        	</div>
 				      	</div>
 				      	<div class="modal-footer">
@@ -73,39 +62,56 @@
 		</div>
 
 		<!--Edit Modal -->
+		
 		<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 			    <div class="modal-content">
-			    	<form method="post" action="/edit">
+
+
+
+			    	<form method="POST" action="/recipes/<%= recipes.id %>?_method=PUT">
+
+				      	<input name="id" type="hidden" value="<%=recipes.id%>">
 				      	<div class="modal-header">
-				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        	<h4 class="modal-title" id="myModalLabel">Edit Recipe</h4>
+				        		<h4 class="modal-title" id="myModalLabel">Edit Recipe</h4>
 				      	</div>
+
 				      	<div class="modal-body">
 				        	<div class="form-group">
 				        		<label>Recipe Name</label>
-				        		<input type="text" class="form-control" name="recipe_name" id="editName">
+				        		<input type="text" class="form-control" name="recipe_name" id="editName" value="<%=data.recipe_name%>">
 				        	</div>
 				        	<div class="form-group">
 				        		<label>Ingredients</label>
-				        		<input type="text" class="form-control" name="ingredients" id="editIng">
+				        		<textarea type="text" class="form-control" name="ingredients" id="editIngredients">
+				        			<%=data.ingredients%>
+				        		</textarea>
 				        	</div>
 				        	<div class="form-group">
 				        		<label>Instructions</label>
-				        		<input type="text" class="form-control" name="instructions" id="editInst">
+				        		<textarea type="text" class="form-control" name="instructions" id="editInstructions">
+				        			<%=data.instructions%>
+				        		</textarea>
 				        	</div>
 				      	</div>
+				     
 				      	<div class="modal-footer">
 				        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				        	<input type="submit" class="btn btn-primary" value="save">
 				      	</div>
 			      	</form>
+
+			      	
 			    </div>
 			 </div>
 		</div>
 
 	</div>
 </div>
-
 <% include ../partials/footer %>
+
+
+
+
+
 
