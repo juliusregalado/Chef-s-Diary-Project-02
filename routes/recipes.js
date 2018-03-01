@@ -1,15 +1,16 @@
 const router = require('express').Router();
-const recipeC = require('../controllers/recipeC')
-const viewsC = require('../controllers/viewsC')
+const recipeC = require('../controllers/recipeC');
+const viewsC = require('../controllers/viewsC');
+const cuisinesC = require('../controllers/cuisinesC');
 
-router.get('/', recipeC.index, viewsC.index);
+router.get('/', cuisinesC.index, recipeC.index, viewsC.index);
 
-router.get('/:id/edit', recipeC.getOne, viewsC.editForm);
+router.get('/:id/edit', cuisinesC.index, recipeC.getOne, viewsC.editForm);
 
-router.post('/add', recipeC.create);
+router.post('/add',  recipeC.create, cuisinesC.index, viewsC.index);
 
-router.put('/:id', recipeC.update)
+router.put('/:id', recipeC.update, viewsC.handleUpdate);
 
-router.delete('/delete/:id', recipeC.delete)
+router.delete('/delete/:id', recipeC.delete);
 
-module.exports = router; 
+module.exports = router;

@@ -5,7 +5,10 @@ const db = pgp(dbconfig);
 module.exports = {
 
 	findAll() {
-		return db.any(`SELECT * FROM recipes`);
+    return db.many(`
+      	SELECT recipes.id AS id, recipe_name, ingredients, instructions, cuisine
+        FROM recipes JOIN cuisines ON recipes.cuisine_id=cuisines.id
+      	ORDER BY recipes.recipe_name`);
 	},
 
 	findById(id) {
@@ -17,21 +20,20 @@ module.exports = {
 
   	create(recipe) {
   		return db.one(`
-      		INSERT INTO recipes(recipe_name, ingredients, instructions)
-      		VALUES ($/recipe_name/, $/ingredients/, $/instructions/)
-      		RETURNING *`, recipe);
-
-  	
+      	INSERT INTO recipes(recipe_name, ingredients, instructions, cuisine_id)
+      	VALUES ($/recipe_name/, $/ingredients/, $/instructions/, $/cuisine_id/)
+      	RETURNING *`, recipe);  	
   	},
 
   	update(recipe) {
   		return db.one(`
   			UPDATE recipes
   			SET recipe_name = $/recipe_name/,
-  				ingredients = $/ingredients/,
-  				instructions = $/instructions/
-  				WHERE id = $/id/
-  				RETURNING *`, recipe)
+        ingredients = $/ingredients/,
+        instructions = $/instructions/,
+        cuisine_id = $/cuisine_id/
+  			WHERE id = $/id/
+  			RETURNING *`, recipe)
   	},
 
   	destroy(id) {

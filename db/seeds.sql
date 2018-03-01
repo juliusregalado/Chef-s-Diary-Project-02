@@ -1,8 +1,8 @@
-INSERT INTO cuisine (cuisine) VALUES
-  ('Asian'),
-  ('Italian'),
-  ('Carribean'),
-  ('Comfort');
+INSERT INTO cuisines (cuisine) VALUES 
+  ('Chinese'),('Italian'),('Indian'),('American'),('Mexican'),('Japanese'),('Thai'),
+  ('Asian'),('Vegetarian'),('Spanish'),('French'),('Mediterranean'),('Vietnamese'),('African'),
+  ('Middle Eastern'),('Barbeque'),('Korean'),('German'),('Caribbean'),('Seafood'),('Euopean'),
+  ('Indonesian'),('Fusion'),('Fast food'),('Filipino'),('Soul'),('Russian'),('Sweets'),('other');
 
 INSERT INTO recipes (recipe_name, ingredients, instructions, cuisine_id) VALUES
   (
@@ -17,7 +17,7 @@ INSERT INTO recipes (recipe_name, ingredients, instructions, cuisine_id) VALUES
     'Make the sauce: In a medium bowl, combine soy sauce, vinegar, sesame oil, honey, garlic, ginger and cornstarch. Whisk until smooth.
      In a large skillet, over medium heat, heat oil. ...
      Pour sauce over chicken and simmer until sauce has thickened slightly and chicken is cooked through.',
-    1
+    8
   ),
   (
     'Chicken Curry',

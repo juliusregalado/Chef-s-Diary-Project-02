@@ -3,11 +3,9 @@ const recipesDB = require('../models/recipesDB')
 module.exports = {
 	
 	index(req,res,next) {
-		console.log('recipe list');
 		recipesDB.findAll()
-			.then((recipesiol)=> {
-				console.log(recipesiol)
-				res.locals.recipes = recipesiol
+			.then((recipes)=> {
+				res.locals.recipesiol = recipes
 				next()
 			})
 			.catch(err => {
@@ -25,10 +23,11 @@ module.exports = {
 	},
 
 	create(req,res,next) {
+		console.log('yoooo ransB')
 		recipesDB.create(req.body)
+		console.log('yyoooooooo',req.body)
 			.then((recipe) => {
 				res.locals.recipes = recipe
-				res.redirect('/recipes') 
 				next()
 			})
 			.catch(err => {
@@ -37,11 +36,9 @@ module.exports = {
 	},
 
 	update(req,res,next) {
-		console.log(req.body)
 		recipesDB.update(req.body)
 			.then((recipe) => {
-				res.locals.recipe = recipe
-				res.redirect('/recipes')
+				res.locals.recipes = recipe
 				next()
 			})
 			.catch(err => {
