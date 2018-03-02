@@ -4,6 +4,7 @@ module.exports = process.env.DATABASE_URL || {
   port:     process.env.DB_PORT || 5432,
   database: process.env.DB_NAME || 'chefs_diary_db',
 };
+
 /*
 const config = process.env.DATABASE_URL || {
   host: process.env.PG_HOST,
