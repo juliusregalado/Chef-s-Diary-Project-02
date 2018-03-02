@@ -6,16 +6,42 @@
 
 <br>
 
+ 	<!-- <div class="row">
+  		<div class="col-4">
+  			<%recipes.forEach((recipes) => {%>
+    			<div class="list-group" id="list-tab" role="tablist">
+      				<a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
+      					<%=recipes.recipe_name%> <br> <%=recipes.cuisine%> 
+      				</a>
+      			</div>
+   	 		<%})%>
+  		</div>
+
+ 		 <div class="col-8">
+    		<div class="tab-content" id="nav-tabContent">
+      			<div class="tab-pane fade show active" id="<%=recipes.id%>" role="tabpanel" aria-labelledby="list-home-list">
+      				<p><strong>Ingredients: </strong><%=recipes.ingredients%></p>
+					<p><strong>Instructions: </strong><%=recipes.instructions%></p>
+					<form action="recipes/delete/<%=recipes.id%>?_method=delete" method="post">
+    					<button class="btn btn-danger" type="Submit" value="Delete">
+    						Delete
+    					</button>
+					</form>
+      			</div>
+    		</div>
+  		</div>
+	</div> -->
+
 <div class="row">
 	<div clss="col-md-offst-2 col-md-7">
-		<%recipesiol.forEach((recipes) => {%>
+		<%recipes.forEach((recipes) => {%>
 			
 			<div class="container well">	
-				<h4><%= recipes.recipe_name%>
-				<button class="btn btn-default pull-right" data-toggle="collapse" data-target="#<%=recipes.id%>" aria-expanded="false" aria-controls="<%=recipes.recipe_name%>">View
-				</button>
-				<a class="btn btn-default pull-right" href="/recipes/<%=recipes.id%>/edit">	Edit
-				</a></h4>
+				<h5><%= recipes.recipe_name%>
+				<a class="btn btn-default pull-right" data-toggle="collapse" data-target="#<%=recipes.id%>" aria-expanded="false" aria-controls="<%=recipes.recipe_name%>">View
+				</a>
+				<a class="btn btn-default pull-right" href="/recipes/<%=recipes.id%>/edit">Edit
+				</a></h5>
 				<p><%=recipes.cuisine%></p>
 				
 				<div class="collapse" id="<%=recipes.id%>">
@@ -32,8 +58,8 @@
 				</div>
 			</div>
 		<%})%>
-
-		<!--ADD Modal -->
+		
+		
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 			    <div class="modal-content">
@@ -68,8 +94,9 @@
 
 				      	</div>
 				      	<div class="modal-footer">
-				        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      		<button id="suggested" class="btn btn-primary mr-auto">Need a suggestion? Click here!</button>
 				        	<input type="submit" class="btn btn-primary" value="save">
+				        	<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 				      	</div>
 			      	</form>
 			    </div>

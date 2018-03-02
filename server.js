@@ -25,8 +25,11 @@ app.get('/', (req,res) => {
 const recipeR = require('./routes/recipes')
 app.use('/recipes', recipeR);
 
+const searchR = require('./routes/search')
+app.use('/search', searchR);
+
 //port config
-const port = process.env.PORT || 3000
-app.listen(port, () => {
-	console.log(`Server active on ${port}`)
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+	console.log(`Server active on ${PORT}`)
 })

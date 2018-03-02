@@ -5,13 +5,14 @@ module.exports = {
 	},
 
 	editForm(req,res) {
-		res.render('recipes/editForm', {
+		res.render('recipes/editPage', {
 			data: res.locals.recipe
 		})
 	},
 
 	handleCreate(req, res) {
     	res.redirect('/recipes');
+
   	},
 
   	handleUpdate(req,res) {

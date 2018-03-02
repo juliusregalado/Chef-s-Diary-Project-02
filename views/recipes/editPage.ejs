@@ -21,9 +21,7 @@
 
   	<div class="form-group">
     	<label><strong>Ingredients:</strong></label>
-    	<textarea class="form-control" rows="5" name="ingredients" type='"text'>
-    		<%=data.ingredients%>
-    	</textarea>
+    	<textarea class="form-control" rows="5" name="ingredients" type='"text'><%=data.ingredients%></textarea>
   	</div>
 
   	<div class="form-group">
@@ -33,9 +31,15 @@
     	</textarea>
   	</div>
 
-     <button type="submit" value="Save changes">Save Changes</button>
-     <button type="reset" value="Reset">Reset</button>
-     <button type="cancel" onclick="/recipes">Cancel</button>
+     <button type="submit" value="Save changes">
+     	Save Changes
+     </button>
+     <button type="reset" value="Reset">
+     	Reset
+     </button>
+     <button type="cancel" onclick="/recipes">
+     	Cancel
+     </button>
 
 </form>
 </div>

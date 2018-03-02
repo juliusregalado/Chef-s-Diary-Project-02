@@ -5,7 +5,7 @@ module.exports = {
 	index(req,res,next) {
 		recipesDB.findAll()
 			.then((recipes)=> {
-				res.locals.recipesiol = recipes
+				res.locals.recipes = recipes
 				next()
 			})
 			.catch(err => {
@@ -23,16 +23,16 @@ module.exports = {
 	},
 
 	create(req,res,next) {
-		console.log('yoooo ransB')
 		recipesDB.create(req.body)
-		console.log('yyoooooooo',req.body)
 			.then((recipe) => {
 				res.locals.recipes = recipe
+				res.redirect('/recipes')
 				next()
 			})
 			.catch(err => {
 				next(err)
 			})
+		console.log('yyoooooooo',req.body)
 	},
 
 	update(req,res,next) {
