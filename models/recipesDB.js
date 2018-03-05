@@ -1,5 +1,5 @@
 const pgp = require('pg-promise')();
-const dbconfig = require('../config/dbconfig');
+const dbConfig = require('../config/dbConfig');
 const db = pgp(dbconfig);
 
 module.exports = {
