@@ -8,6 +8,4 @@ const config = process.env.DATABASE_URL || {
 
 // const dbConfig = require('../config/config');
 const db = pgp(config);
-
-
 module.exports = db;
