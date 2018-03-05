@@ -21,5 +21,3 @@ module.exports = {
  			WHERE cuisines.id=$1`,id)
  	}
 };
-
-
