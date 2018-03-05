@@ -30,7 +30,7 @@ Chef's Diary is a simple application where you can manage your own recipes, with
 	- EJS
 	- Bootstrap 
 	- HTML 
-	- CSS..
+	- CSS
 - Tools
 	- sublime text 3
 	- git hub
