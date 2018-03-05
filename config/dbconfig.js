@@ -1,3 +1,11 @@
+module.exports = process.env.DATABASE_URL || {
+  host:     process.env.PG_HOST || 'localhost',
+  port:     process.env.PG_PORT || 5432,
+  database: process.env.PG_DATABASE || 'chefs_diary_db',
+  /* user:     process.env.DB_USER, */
+};
+
+/*
 const config = process.env.DATABASE_URL || {
   host: process.env.PG_HOST,
   port: process.env.PG_PORT,
@@ -5,12 +13,4 @@ const config = process.env.DATABASE_URL || {
 };
 
 module.exports = config;
-
-
-/*
-module.exports = {
-	host: 'localhost',
-	port: 5432,
-	database: 'chefs_diary_db'	
-}
 */
