@@ -43,6 +43,6 @@ Chef's Diary is a simple application where you can manage your own recipes, with
 	- https://www.stackoverflow.com/
 	- https://www.developer.mozilla.com/
 ## Links for finished project
-	- [Deployed app](https://chefsdiary.herokuapp.com/)
-	- [Video Presentation](https://www.youtube.com/watch?v=-vIiY4vEjQw&feature=youtu.be)
+ [Deployed app](https://chefsdiary.herokuapp.com/)
+ [Video Presentation](https://www.youtube.com/watch?v=-vIiY4vEjQw&feature=youtu.be)
 
