@@ -1,8 +1,2 @@
-$(() => {
-	console.log('script loaded')
-	$('#suggested').onclick(() => {
-		alert('1')
-	})
+console.log('js is connected') 
 
-
-})

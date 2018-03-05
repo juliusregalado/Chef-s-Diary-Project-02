@@ -3,11 +3,11 @@ const recipeC = require('../controllers/recipeC');
 const viewsC = require('../controllers/viewsC');
 const cuisinesC = require('../controllers/cuisinesC');
 
-router.get('/', cuisinesC.index, recipeC.index, viewsC.index);
+router.get('/', cuisinesC.index, recipeC.index, viewsC.indexR);
 
 router.get('/:id/edit', cuisinesC.index, recipeC.getOne, viewsC.editForm);
 
-router.post('/add',  recipeC.create, cuisinesC.index, viewsC.index);
+router.post('/add',  recipeC.create, cuisinesC.index, viewsC.indexR);
 
 router.put('/:id', recipeC.update, viewsC.handleUpdate);
 

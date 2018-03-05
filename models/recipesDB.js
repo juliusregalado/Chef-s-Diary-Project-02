@@ -6,7 +6,7 @@ module.exports = {
 
 	findAll() {
     return db.many(`
-      	SELECT recipes.id AS id, recipe_name, ingredients, instructions, cuisine
+      	SELECT recipes.id AS id, recipe_name, ingredients, instructions, cuisine, cuisine_id
         FROM recipes JOIN cuisines ON recipes.cuisine_id=cuisines.id
       	ORDER BY recipes.recipe_name`);
 	},

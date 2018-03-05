@@ -1,54 +1,30 @@
 <% include ../partials/header %>
-
-<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addModal">
+<div class="container mainSection">
+<button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="modal" data-target="#addModal" id="addButton">
 	Add Recipe
 </button>
-
 <br>
+	<div class="accordion">
+		<div class="card">
+			<%recipes.forEach((recipes) => {%>
+				<div class="card-header" id="headingOne">
+					<h5 class="mb-0">
+						<button class="btn btn-link" data-toggle="collapse" data-target="#<%=recipes.id%>" aria-expanded="false" aria-controls="<%=recipes.recipe_name%>">
+							<%= recipes.recipe_name%>
+						</button>
+					</h5>
+				</div>
 
- 	<!-- <div class="row">
-  		<div class="col-4">
-  			<%recipes.forEach((recipes) => {%>
-    			<div class="list-group" id="list-tab" role="tablist">
-      				<a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
-      					<%=recipes.recipe_name%> <br> <%=recipes.cuisine%> 
-      				</a>
-      			</div>
-   	 		<%})%>
-  		</div>
-
- 		 <div class="col-8">
-    		<div class="tab-content" id="nav-tabContent">
-      			<div class="tab-pane fade show active" id="<%=recipes.id%>" role="tabpanel" aria-labelledby="list-home-list">
-      				<p><strong>Ingredients: </strong><%=recipes.ingredients%></p>
-					<p><strong>Instructions: </strong><%=recipes.instructions%></p>
-					<form action="recipes/delete/<%=recipes.id%>?_method=delete" method="post">
-    					<button class="btn btn-danger" type="Submit" value="Delete">
-    						Delete
-    					</button>
-					</form>
-      			</div>
-    		</div>
-  		</div>
-	</div> -->
-
-<div class="row">
-	<div clss="col-md-offst-2 col-md-7">
-		<%recipes.forEach((recipes) => {%>
-			
-			<div class="container well">	
-				<h5><%= recipes.recipe_name%>
-				<a class="btn btn-default pull-right" data-toggle="collapse" data-target="#<%=recipes.id%>" aria-expanded="false" aria-controls="<%=recipes.recipe_name%>">View
-				</a>
-				<a class="btn btn-default pull-right" href="/recipes/<%=recipes.id%>/edit">Edit
-				</a></h5>
-				<p><%=recipes.cuisine%></p>
-				
-				<div class="collapse" id="<%=recipes.id%>">
-					<hr>
+				<div class="collapse" id="<%=recipes.id%>" aria-labelledby="headingOne" data-parent="#accordion">
+					<div class="card-body">
+					<a href="cuisines/<%=recipes.cuisine_id%>"><%=recipes.cuisine%> Cuisine</a>
 					<p><strong>Ingredients: </strong><%=recipes.ingredients%></p>
 					<p><strong>Instructions: </strong><%=recipes.instructions%></p>
-					<form action="recipes/delete/<%=recipes.id%>?_method=delete" method="post">
+					
+					<form class="pull-right" action="recipes/delete/<%=recipes.id%>?_method=delete" method="post">
+    					<a class="btn btn-default" href="/recipes/<%=recipes.id%>/edit">
+						Edit
+						</a>
     					<button class="btn btn-danger" type="Submit" value="Delete">
     						Delete
     					</button>
@@ -56,10 +32,11 @@
 					<br>
 					<br>
 				</div>
-			</div>
-		<%})%>
-		
-		
+				</div>
+			<%})%>
+		</div>
+	</div>
+		<!-- add modal -->
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 			    <div class="modal-content">
@@ -67,13 +44,13 @@
 				      	<div class="modal-header">
 				        	<h4 class="modal-title" id="myModalLabel">Add Recipe</h4>
 				      	</div>
-				      	<div class="modal-body">
+				      	<div class="modal-body add-form">
 				        	<div class="form-group">
 				        		<label>Recipe Name</label>
 				        		<input type="text" class="form-control" name="recipe_name">
 				        	</div>
 
-				        	<label><strong>Select Cuisine</strong></label>
+				        	<label class="add-form">Select Cuisine</label>
     						<select name="cuisine_id" class="form-control">
       							<%cuisinesito.forEach(cuisine => { %>
       							<option value="<%=cuisine.id%>">
@@ -82,19 +59,18 @@
    			 					<%})%>
     						</select>
 							
-				        	<div class="form-group">
-				        		<label>Ingredients</label>
-				        		<textarea type="text" rows="5" class="form-control" name="ingredients"></textarea>
+				        	<div class="form-group add-form">
+				        		<label class="blackText">Ingredients</label>
+				        		<textarea type="text" rows="4" class="form-control" name="ingredients"></textarea>
 				        	</div>
 
-				        	<div class="form-group">
+				        	<div class="form-group add-form">
 				        		<label>Instructions</label>
-				        		<textarea type="text" rows="5" class="form-control" name="instructions"></textarea>
+				        		<textarea type="text" rows="4" class="form-control" name="instructions"></textarea>
 				        	</div>
 
 				      	</div>
 				      	<div class="modal-footer">
-				      		<button id="suggested" class="btn btn-primary mr-auto">Need a suggestion? Click here!</button>
 				        	<input type="submit" class="btn btn-primary" value="save">
 				        	<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 				      	</div>
@@ -103,12 +79,8 @@
 			 </div>
 		</div>
 
-	</div>
-</div>
+</div> <!-- Container close tag -->
 <% include ../partials/footer %>
-
-
-
 
 
 

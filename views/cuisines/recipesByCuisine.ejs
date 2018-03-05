@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+<div class="container mainSection">
+
+<div class="row">
+	<div class="col-4">
+    	<div class="list-group active" id="list-tab" role="tablist">
+    	<% cuisinesito.forEach((cuisines) => { %>
+      		<a href="<%=cuisines.id%>" class="list-group-item list-group-item-action" id="<%=cuisines.id%>" data-toggle="<%=cuisines.id%>" role="tab" aria-controls="">
+				<%=cuisines.cuisine%>
+      		</a>
+		<%})%>
+    	</div>
+  	</div>
+
+	<div class="col-8">
+    	<div class="tab-content" id="nav-tabContent">
+      		<div class="tab-pane fade show active" id="<%=cuisineGrouped.id%>" role="tabpanel" aria-labelledby="<%cuisineOne.id%>">
+      		
+    		<h1 class="display-4">The <%=cuisineOne.cuisine%> Cuisine</h1>
+    		<p class="lead"><%=cuisineOne.description%></p>
+      		
+      		<h3>Your Recipes:</h3>
+      		<ul>
+			<%cuisineGrouped.forEach((results) => {%>
+				<li><a class="lead" href="/recipes"><%=results.recipe_name%></a></li>
+			<%})%>
+			</div>
+			<ul>
+		</div>
+	</div>
+
+</div>
+
+</div>
+<% include ../partials/footer %>

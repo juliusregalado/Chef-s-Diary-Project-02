@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS cuisines;
 CREATE TABLE cuisines (
   	id SERIAL PRIMARY KEY,
   	cuisine VARCHAR NOT NULL,
+  	description VARCHAR NOT NULL,
   	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
@@ -15,5 +16,6 @@ CREATE TABLE recipes (
 	cuisine_id INTEGER REFERENCES cuisines,
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
 
 CREATE INDEX ON recipes (recipe_name);

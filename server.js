@@ -18,15 +18,27 @@ app.use(express.static('public'))
 app.set('views', path.join(__dirname,'views'))
 app.set('view engine', 'ejs')
 
-//routes
-app.get('/', (req,res) => {
-	res.render('index')
-})
+//recipes route
 const recipeR = require('./routes/recipes')
 app.use('/recipes', recipeR);
 
+//cuisines route
+const cuisinesR = require('./routes/cuisines')
+app.use('/cuisines', cuisinesR);
+
+//search route
 const searchR = require('./routes/search')
 app.use('/search', searchR);
+
+//root route
+app.get('/', (req,res) => {
+	res.render('index')
+})
+
+//catch all (error)
+app.get('*',(req,res)=>{
+  res.status(404).send('404 not found.')
+})
 
 //port config
 const PORT = process.env.PORT || 3000
